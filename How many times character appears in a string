@@ -1,0 +1,58 @@
+
+import java.util.Scanner;
+
+public class C6E23 {
+
+    public static void main(String[] args) {
+
+        String escapeCharacter = "Y";
+        String continueCharSearch = "Y";
+        Scanner scanner = new Scanner(System.in); //scanner for user input
+
+        while (escapeCharacter.equalsIgnoreCase("Y")) {//first/main loop
+            try {
+                System.out.println("Give me a string.");
+                String input = scanner.nextLine();/*we will take the input and find the number of
+times the specified letter appears in the string*/
+
+                while (continueCharSearch.equalsIgnoreCase("Y")) {
+                    System.out.println("Give me a character. I will tell you how many times "
+                            + "the character appears in " + "'" + input + "'");
+                    char Character = scanner.nextLine().charAt(0);
+                    System.out.println(count(input, Character)); //print out the findings
+                    System.out.println("Do you want to search for another character? "
+                            + "\n(Press 'y' to enter a new input. "
+                            + "Press any other key to move to the next stage.)");
+                    continueCharSearch = scanner.nextLine();
+
+                }//end search for char
+                System.out.println("\nWould you like to enter another string? \n"
+                        + "(Press 'y' to"
+                        + " enter a new input. Press any other key to exit program.)");
+            } catch (Exception ex) {
+                System.out.println("Invalid input");
+            }
+            escapeCharacter = scanner.nextLine();
+            /*if the escapeCharacter is 'y' then we need to also make the 
+continueCharSearch equal to 'y' as well so we can continue to search for characters.
+Previously we set the continueCharSearch to not 'y'*/
+            continueCharSearch = escapeCharacter;
+
+        }//end main loop
+        System.out.println("Program Complete.");
+        scanner.close();
+    }//end main method
+
+    public static int count(String str, char characters) {
+        int count = 0; //initial count for the character we are looking for
+        for (int i = 0; i < str.length(); i++) {//iterate through the string
+            if (str.charAt(i) == characters) //if we find the character we will add to the count
+            {
+                count++;
+            }
+
+        }
+        return count;
+
+    }
+}
