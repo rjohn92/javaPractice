@@ -1,0 +1,75 @@
+Skip to content
+rjohn92
+/
+Pentagonal-Numbers
+Public
+Code
+Issues
+Pull requests
+Actions
+Projects
+More
+Pentagonal-Numbers/PentagonalNumbers
+@rjohn92
+rjohn92 Create PentagonalNumbers
+ History
+ 1 contributor
+45 lines (34 sloc)  1.48 KB
+
+import java.util.Scanner;
+
+public class PentagonalNumbers {
+
+    public static void main(String[] args) {
+        //declare scanner
+        Scanner scanner = new Scanner(System.in);
+        int escapeCharacter = 0;
+        
+        
+        //starting from 1 to 100 we will find pentagonal numbers
+System.out.println("The first 100 pentagonal numbers are: ");
+        for (int i = 1; i<=100; i++) {
+            System.out.printf("%6d",PentagonalNumber(i));
+            if (i % 10 == 0) { //when there are 10 numbers displayed on a line...
+                System.out.println("\n"); //...print on next line
+        }//end of 'if'
+            
+        }//end of for loop
+        while (escapeCharacter ==0) {
+        System.out.println("Do you want to enter another number not listed and find the "
+                + "pentagonal number?\n (Press '0' if you want to enter another number. "
+                + "Press any other number to exit program.)");
+        escapeCharacter = scanner.nextInt();
+        if(escapeCharacter==0){
+            System.out.println("Please enter a natural number.");
+            System.out.println(PentagonalNumber(scanner.nextInt()));
+        }
+        else {
+            System.out.println("Program complete.");
+            break;
+        } 
+            
+        }//end of main method
+        
+    }
+    
+
+    public static int PentagonalNumber(int n) {
+        //formula for pentagonal numbers
+        return n * (3 * n - 1) / 2;
+    }//end of PentagonalNumber method
+
+}//end of class
+© 2021 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Loading complete
