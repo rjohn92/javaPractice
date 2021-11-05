@@ -1,0 +1,60 @@
+import java.util.Scanner;
+        
+public class TemperatureConverter {
+    
+    public static void main(String [] args) {
+        Scanner scanner = new Scanner(System.in);
+        String escapeCharacter = "Y";
+        while (escapeCharacter.equalsIgnoreCase("Y")) {
+        
+        System.out.println("Are you entering a temperature to Celsius or "
+                + "Fahrenheit?\n" + "(If converting to Celsius press 'C'. If converting"
+                + " to Fahrenheit press 'F')");
+        String findTemperature = scanner.next();
+            try {
+        if (findTemperature.equalsIgnoreCase("C")) {
+        System.out.println("Enter the current temperature in Fahrenheit:");
+        double temperature = scanner.nextDouble();
+        System.out.println("The temperature in Celsius is: " +
+                fahrenheitToCelsius(temperature));
+        
+        }else if (findTemperature.equalsIgnoreCase("F")){ 
+            System.out.println("Enter the current temperature in Celsius:");
+            double temperature = scanner.nextDouble();
+            System.out.println("The temperature in Fahrenheit is:  " +
+                    celsiusToFahrenheit(temperature));
+              }//end else if
+        }catch (Exception ex) {
+                System.out.println("You must input digits only.\n(No letters/special"
+                + "characters allowed!)");
+                }
+           
+  
+            System.out.println("Do you want to enter another temperature?\n(Press "
+                    + "'Y' to enter another another temperature. Press any other"
+                    + " character to exit the program.)");
+            escapeCharacter = scanner.next();
+            //if the escapeCharacter does NOT  equal "Y" we will exit  program
+            if (!escapeCharacter.equalsIgnoreCase("Y")) {
+                System.out.println("Program complete."); 
+        }
+    }//end while loop
+    
+     scanner.close();//close scanner
+    
+    } //end of main method
+    
+    public static double celsiusToFahrenheit(double Celsius) {
+        double fahrenheit = (9.0/5) * Celsius + 32;
+        return fahrenheit;     
+        
+        } //end of celsiusToFahrenheit method
+    
+    
+        public static double fahrenheitToCelsius(double Fahrenheit) {
+            double Celsius = (5.0/9) * (Fahrenheit - 32);
+            return Celsius;
+
+        }//end of fahrenheitToCelsius method
+    
+}//end of public class 
