@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+
+public class CountUppercase {
+
+	public static void main (String [] args) {
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Enter string: ");
+		//get String input from the user
+		String input = scanner.next();
+		
+		System.out.println("There are/is " + 
+		countUppers(toCharArray(input)) +
+		" upper case letter(s) in the String " + input+".");
+		
+		
+		
+	}
+	/*check whether each individual char is uppercase. If it is 
+	 * uppercase we will increment the counter
+	 */
+	public static int countUppers (char [] arrayOfChars) {
+		int count = 0;
+		for (int i = 0; i<arrayOfChars.length;i++) {
+			if (Character.isUpperCase(arrayOfChars[i])) {
+				count++;
+			}
+		}
+		return count;
+	}
+	/*must convert the String to char type to evaluate whether the
+	 * String contains uppercase letters first*/
+	public static char [] toCharArray (String input) {
+		char []arrayOfChars = new char [input.length()];
+		for(int i = 0; i<input.length(); i++) {
+			arrayOfChars[i]+= input.charAt(i);
+			
+		}
+		return arrayOfChars;
+		
+	}
+}
